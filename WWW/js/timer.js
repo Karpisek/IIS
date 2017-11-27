@@ -7,7 +7,15 @@
  * @Last modified time: 27-11-2017
 */
 
-var timer = 30000;
+var timer = 50000;
+
+$(window).click(function() {
+    timer = 50000;
+});
+
+$(window).mousemove(function() {
+    timer = 50000;
+});
 
 var x = setInterval(function() {
 
@@ -16,7 +24,13 @@ var x = setInterval(function() {
     var seconds = Math.floor((timer % (1000 * 60)) / 1000);
 
     // Display the result in the element with id="demo"
-    document.getElementById("timestamp").innerHTML = minutes + "m " + seconds + "s ";
+    if(timer < 30000) {
+        $("#timestamp").show();
+        document.getElementById("timestamp").innerHTML = minutes + "m " + seconds + "s ";
+    }
+    else {
+        $("#timestamp").hide();
+    }
 
     // If the count down is finished, write some text
     if (timer <= 0) {

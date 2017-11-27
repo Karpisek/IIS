@@ -17,10 +17,12 @@ if(!@$_SESSION['zamestnanci']) {
 
 
 <body>
+
     <? include 'shared/search.php' ?>
 
-    <div class="container">
-        <table class="table table-striped">
+    <!--
+    <div class="container col-xs-12">
+        <table class="table table-hover">
         <thead>
           <tr>
             <th class="col-xs-1">Titul</th>
@@ -36,5 +38,41 @@ if(!@$_SESSION['zamestnanci']) {
     </div>
 
     <script src="js/employes.js"></script>
+    -->
+
+    <table border="0">
+  <tr  class="header expand">
+      <th colspan="2">Header <span class="sign"></span></th>
+  </tr>
+  <tr>
+    <td>data</td>
+    <td>data</td>
+  </tr>
+  <tr>
+    <td>data</td>
+    <td>data</td>
+  </tr>
+  <tr  class="header expand">
+    <th colspan="2">Header <span class="sign"></span></th>
+  </tr>
+  <tr>
+    <td>date</td>
+    <td>data</td>
+  </tr>
+  <tr>
+    <td>data</td>
+    <td>data</td>
+  </tr>
+  <tr>
+    <td>data</td>
+    <td>data</td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+$('.header').click(function(){
+ $(this).toggleClass('expand').nextUntil('tr.header').slideToggle(100);
+});
+</script>
 
 </body>

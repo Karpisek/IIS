@@ -5,8 +5,9 @@
 # @Project: IFJ
 # @Last modified by:   miro
 # @Last modified time: 27-11-2017
-include_once 'session/login.php'; // Includes Login Script
 include_once "shared/navbar.php";
+include_once 'session/login.php'; // Includes Login Script
+
 
 if(isset($_SESSION['login_user'])){
     header("location: home.php");

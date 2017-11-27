@@ -4,7 +4,7 @@
 # @Email:  karpisek.m@email.cz
 # @Project: IFJ
 # @Last modified by:   miro
-# @Last modified time: 26-11-2017
+# @Last modified time: 27-11-2017
 
 ?>
 
@@ -13,4 +13,5 @@
 </div>
 
 <script src="js/search.js"></script>
+
 <br>

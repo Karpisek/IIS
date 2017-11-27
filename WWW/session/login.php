@@ -9,7 +9,11 @@
 //include_once "head.php";
 include_once "query/connect.php";
 
-session_start();
+ $error = 0;
+
+ if(!isset($_SESSION)){
+     session_start();
+ }
 
 if (isset($_POST['login'])) {
 
@@ -35,8 +39,9 @@ if (isset($_POST['login'])) {
 
       header("location: home.php");
    }else {
-       $error = "Incorrect username or password";
+       echo '<script type="text/javascript">',
+            'infoPanel("Špatné uživatelské jméno či heslo", "alert-danger");',
+            '</script>';
    }
 }
-
 ?>

@@ -9,27 +9,66 @@
 
 var rowMem;
 var idexMem;
+var trMem;
+var Data;
+
+getData(true);
+
+$(window).click(function(e) {
+    if (!(e.target.id == "detail" || $(e.target).parents("#detail").length)) {
+        if ( $( "#detail" ).length ) {
+            if ($(e.target).hasClass('view')) {
+                $("#table").hide();
+            }
+
+            setTimeout(function() {
+                $.get('query/getEmployes.php', function(responseText) {
+
+                    Data = jQuery.parseJSON(responseText);
 
 
 
-$.get('query/getEmployes.php', function(responseText) {
+                    fetchTable();
 
-    var Data = jQuery.parseJSON(responseText);
-    fetchTable(Data);
+                    if ($(e.target).hasClass('view')) {
+                            var view = $('button[value="'+e.target.value+'"]').closest('tr').find('.view');
+                            view.value = e.target.value;
+                            ViewListener(view);
+                            $("#table").fadeIn();
+                    }
+
+                    filterTable();
+                });
+
+            }, 1);
+        }
+
+    }
 });
 
-function fetchTable(Data) {
+
+function getData(fetch) {
+    $.get('query/getEmployes.php', function(responseText) {
+
+        Data = jQuery.parseJSON(responseText);
+
+        if(fetch) {
+            fetchTable();
+        }
+
+    });
+}
+
+
+function fetchTable() {
 
     var colStart = "<td>";
     var colEnd = "</td>";
     var tBody = "";
 
-    Data.sort(SortByName);
-    Data.reverse();
-
     Data.forEach( function(elem, index) {
 
-        var viewB = '<button type="button" class="btn btn-primary view" value='+ index +'>View</button>';
+        var viewB = '<button type="button" class="btn btn-primary view" value='+ Data[index].idZamestnance +'>View</button>';
         var editB = '<button type="button" class="btn btn-success" >Edit</button>';
 
         var titul = '<td class="col-xs-1 container">' + elem.titul + colEnd;
@@ -43,21 +82,26 @@ function fetchTable(Data) {
         tBody += "</tr>";
     });
 
-    document.getElementById("table").innerHTML += tBody;
+    document.getElementById("table").innerHTML = tBody;
 
     $('.view').click(function(){
-
-        indexMem = this.value;
-        rowMem = $(this).closest('tr').html();
-
-        // zmenim dany radek na vypis detailu
-        $(this).closest('tr').load('shared/detail.php?id=' + Data[indexMem].idZamestnance);
-
+        ViewListener(this);
     });
+
 }
 
 function SortByName(a, b){
   var aName = a.prijmeni.toLowerCase();
   var bName = b.prijmeni.toLowerCase();
   return ((aName < bName) ? -1 : ((aName > bName) ? 1 : 0));
+}
+
+function ViewListener(e) {
+        indexMem = e.value;
+        rowMem = $(e).closest('tr').html();
+
+        // zmenim dany radek na vypis detailu
+        trMem = $(e).closest('tr');
+        trMem.load('shared/detail.php?id=' + e.value);
+
 }

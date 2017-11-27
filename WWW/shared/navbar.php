@@ -61,6 +61,9 @@ function authCheck() {
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
         <link rel="stylesheet" href="css/style.css">
+
+
+
     </head>
 
     <body>
@@ -102,18 +105,20 @@ function authCheck() {
 
             </div>
         </nav>
-        <div class="container-fluid">
-            <div class="container col-md-11 col-sm-11 col-xs-1">
-            </div>
-            <div class="container col-md-1 col-sm-1 col-xs-1">
-                <div class="container w50 alert alert-danger paddingOff">
-                    <? if(isset($_SESSION['login_user'])) { ?><b id="timestamp">5m 0s</b><? } ?>
-                </div>
-            </div>
+
+        <div class="infoBox col-xs-12">
+            <div class="col-md-5"></div>
+            <div class="alert col-xs-12 col-md-2" id="infoMessage"></div>
         </div>
 
-        <? if(isset($_SESSION['login_user'])) { ?> <script src="js/timer.js"></script> <? } ?>
+        <? if(isset($_SESSION['login_user'])) { ?>
+            <div class="container w50 alert alert-danger paddingOff">
+                <b id="timestamp" hidden="true">5m 0s</b>
+                <script src="js/timer.js"></script>
+            </div>
+        <? } ?>
 
+    <script src="js/infobox.js"></script>
     </body>
 
 </html>
