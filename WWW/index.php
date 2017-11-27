@@ -4,7 +4,7 @@
 # @Email:  karpisek.m@email.cz
 # @Project: IFJ
 # @Last modified by:   miro
-# @Last modified time: 26-11-2017
+# @Last modified time: 27-11-2017
 include_once 'session/login.php'; // Includes Login Script
 include_once "shared/navbar.php";
 

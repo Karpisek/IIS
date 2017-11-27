@@ -4,7 +4,7 @@
 # @Email:  karpisek.m@email.cz
 # @Project: IFJ
 # @Last modified by:   miro
-# @Last modified time: 26-11-2017
+# @Last modified time: 27-11-2017
 
 header('Content-Type: text/html; charset=utf-8');
 
@@ -64,6 +64,7 @@ function authCheck() {
     </head>
 
     <body>
+
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
 
@@ -106,7 +107,7 @@ function authCheck() {
             </div>
             <div class="container col-md-1 col-sm-1 col-xs-1">
                 <div class="container w50 alert alert-danger paddingOff">
-                    <b id="timestamp">5m 0s</b>
+                    <? if(isset($_SESSION['login_user'])) { ?><b id="timestamp">5m 0s</b><? } ?>
                 </div>
             </div>
         </div>

@@ -4,7 +4,7 @@
 # @Email:  karpisek.m@email.cz
 # @Project: IFJ
 # @Last modified by:   miro
-# @Last modified time: 26-11-2017
+# @Last modified time: 27-11-2017
 
 include_once "session/session.php";
 include_once "shared/navbar.php";
@@ -17,14 +17,17 @@ if(!@$_SESSION['zamestnanci']) {
 
 
 <body>
+    <? include 'shared/search.php' ?>
+
     <div class="container">
         <table class="table table-striped">
         <thead>
           <tr>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Email</th>
-            <th></th>
+            <th class="col-xs-1">Titul</th>
+            <th class="col-xs-2">Jméno</th>
+            <th class="col-xs-3">Příjmení</th>
+            <th class="col-xs-3">Email</th>
+            <th class="col-xs-2"></th>
           </tr>
         </thead>
         <tbody id="table">
@@ -32,8 +35,6 @@ if(!@$_SESSION['zamestnanci']) {
       </table>
     </div>
 
-
-
-
     <script src="js/employes.js"></script>
+
 </body>
