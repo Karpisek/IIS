@@ -4,7 +4,7 @@
  * @Email:  karpisek.m@email.cz
  * @Project: IFJ
  * @Last modified by:   miro
- * @Last modified time: 27-11-2017
+ * @Last modified time: 28-11-2017
  */
 
 body {
@@ -15,29 +15,12 @@ table {
     min-width: 800px;
 }
 
-tbody {
-    display:block;
-    height:610px;
-    overflow:auto;
-}
-thead, tbody tr {
-    display:table;
-    width:100%;
-    table-layout:fixed;
-}
-
-td {
-    padding: 0px; !importatnt
-    text-align: center;
-}
-
-thead {
-    width: calc( 100% - 1em );
-}
-
 #tableBox {
-    overflow-y: scroll;
     height: 500px;
+}
+
+.bigger {
+    height: 700px;
 }
 
 .paddingOff {

@@ -16,7 +16,6 @@ if(!@$_SESSION['zamestnanci']) {
 }
 
 else {
-    /*
     $query =
     "   SELECT *
         FROM (
@@ -37,6 +36,5 @@ else {
             $myArray[] = $row;
     }
     echo json_encode($myArray);
-    */
 }
 ?>

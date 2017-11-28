@@ -1,11 +1,10 @@
 <?php
 # @Author: Miroslav Karpíšek <miro>
-# @Date:   26-11-2017
+# @Date:   28-11-2017
 # @Email:  karpisek.m@email.cz
 # @Project: IFJ
 # @Last modified by:   miro
 # @Last modified time: 28-11-2017
-require 'connect.php';
 
 if(!@$_SESSION){
     session_start();
@@ -17,17 +16,11 @@ if(!@$_SESSION['zamestnanci']) {
 
 else {
     /*
+    $login = mysqli_real_escape_string($db,$_POST['login']);
+
     $query =
-    "   SELECT *
-        FROM (
-            SELECT *
-            FROM Zamestnanci
-            NATURAL JOIN Osetrovatel
-            UNION
-            SELECT *
-            FROM Zamestnanci
-            NATURAL JOIN Uklizec
-        ) AS T";
+    "DELETE from zamestnanci where login='$login';
+    DELETE from ";
 
     $ses_sql = mysqli_query($db, $query);
 
@@ -39,4 +32,3 @@ else {
     echo json_encode($myArray);
     */
 }
-?>

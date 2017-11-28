@@ -4,7 +4,7 @@
 * @Email:  karpisek.m@email.cz
 * @Project: IFJ
  * @Last modified by:   miro
- * @Last modified time: 27-11-2017
+ * @Last modified time: 28-11-2017
 */
 
 var timer = 50000;
@@ -18,7 +18,6 @@ $(window).mousemove(function() {
 });
 
 var x = setInterval(function() {
-
     // Time calculations for days, hours, minutes and seconds
     var minutes = Math.floor((timer % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((timer % (1000 * 60)) / 1000);
@@ -46,7 +45,7 @@ var x = setInterval(function() {
          });
     }
 
-
+    console.log(timer);
     timer -= 1000;
 
 

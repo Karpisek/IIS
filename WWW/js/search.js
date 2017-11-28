@@ -15,6 +15,8 @@ $("#search").on("keyup", function() {
 function filterTable() {
     var value = $("#search").val().toLowerCase();
     $("#table tr").filter(function() {
-        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+        if($(this).hasClass('header')) {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+        }
     });
 }

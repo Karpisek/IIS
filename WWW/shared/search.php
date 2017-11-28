@@ -4,13 +4,17 @@
 # @Email:  karpisek.m@email.cz
 # @Project: IFJ
 # @Last modified by:   miro
-# @Last modified time: 27-11-2017
+# @Last modified time: 28-11-2017
 
 ?>
-
-<div class="container">
-    <input class="form-control" id="search" type="text" placeholder="Search..">
+<div class="row">
+    <div class="container col-md-1"> </div>
+    <div class="container col-md-10 col-xs-12">
+        <input class="form-control" id="search" type="text" placeholder="Search..." autofocus>
+    </div>
+    <div class="container col-md-1"> </div>
 </div>
+
 
 <script src="js/search.js"></script>
 
