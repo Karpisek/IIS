@@ -4,7 +4,7 @@
 # @Email:  karpisek.m@email.cz
 # @Project: IFJ
 # @Last modified by:   miro
-# @Last modified time: 26-11-2017
+# @Last modified time: 02-12-2017
 
     include_once 'query/connect.php';
 
@@ -16,15 +16,7 @@
 
     $query =
     "   SELECT *
-        FROM (
-            SELECT *
-            FROM Zamestnanci
-            NATURAL JOIN Osetrovatel
-            UNION
-            SELECT *
-            FROM Zamestnanci
-            NATURAL JOIN Uklizec
-        ) AS T
+        FROM Zamestnanci
         WHERE login =  '$user_check' ";
 
     $ses_sql = mysqli_query($db, $query);
@@ -34,5 +26,10 @@
     if(!@$_SESSION['login_user']){
         header("location: http://www.stud.fit.vutbr.cz/~xkarpi05/index.php");
     }
+
+    $_SESSION['auth'] = $user_info['specializace'];
+    $_SESSION['jmeno'] = $user_info['jmeno'];
+    $_SESSION['prijmeni'] = $user_info['prijmeni'];
+    $_SESSION['id'] = $user_info['idZamestnance'];
 
 ?>

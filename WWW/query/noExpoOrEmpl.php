@@ -4,7 +4,7 @@
 # @Email:  karpisek.m@email.cz
 # @Project: IFJ
 # @Last modified by:   miro
-# @Last modified time: 29-11-2017
+# @Last modified time: 01-12-2017
 require 'connect.php';
 
 if(!@$_SESSION){
@@ -16,17 +16,17 @@ if(!@$_SESSION['auth'] || $_SESSION['auth'] != "boss") {
 }
 
 else {
-    $query =
-    "   SELECT *
-        FROM Zamestnanci";
+    $idDruh = mysqli_real_escape_string($db,$_GET['idDruh']);
+
+    $query = "SELECT * FROM `Zvire` WHERE idDruh='$idDruh' AND (idZamestnance IS NULL OR idExpo IS NULL)";
 
     $ses_sql = mysqli_query($db, $query);
 
     $myArray = array();
-
     while($row = mysqli_fetch_array($ses_sql,MYSQL_ASSOC)) {
             $myArray[] = $row;
     }
+
     echo json_encode($myArray);
 }
 ?>

@@ -4,29 +4,27 @@
 # @Email:  karpisek.m@email.cz
 # @Project: IFJ
 # @Last modified by:   miro
-# @Last modified time: 29-11-2017
+# @Last modified time: 01-12-2017
 require 'connect.php';
 
 if(!@$_SESSION){
     session_start();
 }
 
-if(!@$_SESSION['auth'] || $_SESSION['auth'] != "boss") {
+if(!@$_SESSION['auth'] || $_SESSION['auth'] != "boss" && $_SESSION['auth'] != 'osetrovatel') {
     header("location: http://www.stud.fit.vutbr.cz/~xkarpi05/index.php");
 }
 
 else {
+    $idKrmiva = mysqli_real_escape_string($db,$_GET['idKrmiva']);
+
     $query =
     "   SELECT *
-        FROM Zamestnanci";
+        FROM Krmivo
+        WHERE idKrmiva = '$idKrmiva'";
 
     $ses_sql = mysqli_query($db, $query);
 
-    $myArray = array();
-
-    while($row = mysqli_fetch_array($ses_sql,MYSQL_ASSOC)) {
-            $myArray[] = $row;
-    }
-    echo json_encode($myArray);
+    echo json_encode(mysqli_fetch_array($ses_sql,MYSQL_ASSOC));
 }
 ?>

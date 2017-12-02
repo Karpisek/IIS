@@ -4,7 +4,7 @@
 # @Email:  karpisek.m@email.cz
 # @Project: IFJ
 # @Last modified by:   miro
-# @Last modified time: 27-11-2017
+# @Last modified time: 02-12-2017
 
 //include_once "head.php";
 include_once "query/connect.php";
@@ -28,14 +28,12 @@ if (isset($_POST['login'])) {
    $count = mysqli_num_rows($result);
 
    // If result matched $myusername and $mypassword, table row must be 1 row
-
+   //
    if($count == 1) {
+      $row = mysqli_fetch_array($result,MYSQL_ASSOC);
+
       $_SESSION['login_user'] = $myusername;
       $_SESSION['timestamp'] = time();
-      $_SESSION['zamestnanci'] = true;
-      $_SESSION['expozice'] = true;
-      $_SESSION['zvirata'] = true;
-      $_SESSION['krmeni'] = true;
 
       header("location: home.php");
    }else {

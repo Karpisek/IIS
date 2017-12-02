@@ -1,10 +1,11 @@
 <?php
 # @Author: Miroslav Karpíšek <miro>
-# @Date:   26-11-2017
+# @Date:   30-11-2017
 # @Email:  karpisek.m@email.cz
 # @Project: IFJ
 # @Last modified by:   miro
 # @Last modified time: 30-11-2017
+
 require 'connect.php';
 
 if(!@$_SESSION){
@@ -17,20 +18,12 @@ if(!@$_SESSION['auth'] || $_SESSION['auth'] != "boss") {
 
 else {
 
+    $idExpo = mysqli_real_escape_string($db,$_POST['idExpo']);
+    $idZvire = mysqli_real_escape_string($db,$_POST['idZvire']);
+
     $query =
-    "   SELECT *
-        FROM Zvire
-        LEFT JOIN Druh ON Zvire.idDruh = Druh.idDruh
-        ORDER BY rodoveJmeno";
+    "   UPDATE Zvire SET idExpo=(SELECT idExpo FROM Expo WHERE idExpo='$idExpo') WHERE idZvire = '$idZvire'; ";
 
     $ses_sql = mysqli_query($db, $query);
-
-    $myArray = array();
-
-    while($row = mysqli_fetch_array($ses_sql,MYSQL_ASSOC)) {
-            $myArray[] = $row;
-    }
-
-    echo json_encode($myArray);
 }
 ?>

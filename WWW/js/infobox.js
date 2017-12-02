@@ -4,9 +4,8 @@
  * @Email:  karpisek.m@email.cz
  * @Project: IFJ
  * @Last modified by:   miro
- * @Last modified time: 28-11-2017
+ * @Last modified time: 01-12-2017
  */
-
 $(".infoBox").hide();
 
 function infoPanel(message, type) {
@@ -17,3 +16,7 @@ function infoPanel(message, type) {
         $(".infoBox").fadeOut("slow");
     },1500);
 }
+
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});

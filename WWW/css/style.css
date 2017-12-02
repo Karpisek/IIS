@@ -4,23 +4,54 @@
  * @Email:  karpisek.m@email.cz
  * @Project: IFJ
  * @Last modified by:   miro
- * @Last modified time: 28-11-2017
+ * @Last modified time: 02-12-2017
  */
 
 body {
-    margin-top: 100px;
+    margin-top: 180px;
 }
 
 table {
     min-width: 800px;
 }
 
+.todoBox {
+    padding: 10px;
+}
+
+#infoMessage {
+    z-index: 10;
+}
+
+.todoExpodone, .todoExpotodo, .todoExpotoday, .todoAnimaltodo, .todoAnimaltoday, .todoAnimaldone {
+    cursor: pointer;
+}
+
 #tableBox {
     height: 500px;
 }
 
+.view {
+    cursor: pointer;
+}
+
 .bigger {
     height: 700px;
+}
+
+.green {
+    color:green;
+    cursor: pointer;
+}
+
+.blue {
+    color:rgb(52, 172, 190);
+    cursor: pointer;
+}
+
+.red_color{
+    color:red;
+    cursor: pointer;
 }
 
 .paddingOff {
@@ -99,10 +130,6 @@ table {
 
 .red {
     background-color: red;
-}
-
-.green {
-    background-color: green;
 }
 
 .padding {

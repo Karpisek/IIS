@@ -4,17 +4,17 @@
 * @Email:  karpisek.m@email.cz
 * @Project: IFJ
  * @Last modified by:   miro
- * @Last modified time: 28-11-2017
+ * @Last modified time: 30-11-2017
 */
 
-var timer = 50000;
+var timer = 300000;
 
 $(window).click(function() {
-    timer = 50000;
+    timer = 300000;
 });
 
 $(window).mousemove(function() {
-    timer = 50000;
+    timer = 300000;
 });
 
 var x = setInterval(function() {
@@ -23,7 +23,7 @@ var x = setInterval(function() {
     var seconds = Math.floor((timer % (1000 * 60)) / 1000);
 
     // Display the result in the element with id="demo"
-    if(timer < 30000) {
+    if(timer < 60000) {
         $("#timestamp").show();
         document.getElementById("timestamp").innerHTML = minutes + "m " + seconds + "s ";
     }
@@ -45,7 +45,6 @@ var x = setInterval(function() {
          });
     }
 
-    console.log(timer);
     timer -= 1000;
 
 

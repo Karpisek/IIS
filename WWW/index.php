@@ -4,14 +4,15 @@
 # @Email:  karpisek.m@email.cz
 # @Project: IFJ
 # @Last modified by:   miro
-# @Last modified time: 28-11-2017
-include_once "shared/navbar.php";
-include_once 'session/login.php'; // Includes Login Script
+# @Last modified time: 02-12-2017
 
+include_once 'session/login.php'; // Includes Login Script
 
 if(isset($_SESSION['login_user'])){
     header("location: home.php");
 }
+
+include_once "shared/navbar.php";
 
 ?>
 
